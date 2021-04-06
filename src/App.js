@@ -68,18 +68,21 @@ export default function App() {
         {deals.map((deal) => (
           <div className="card" key={deal.id}>
             <div className="card__image">
-              <a href={deal.Link} target="blank">
-                <img className="rounded img-fluid" src={deal.Link} alt=""></img>
+              <a href={deal.Link || deal.link} target="blank">
+                <img
+                  className="rounded img-fluid"
+                  src={deal.Link || deal.link}
+                  alt=""></img>
               </a>
             </div>
 
             <div className="card__body">
-              <h5 className="image__title"> {deal.Title}</h5>
+              <h5 className="image__title"> {deal.Title || deal.title}</h5>
               <a
                 href={deal.pageLink}
                 className="btn btn-outline-success"
                 target="blank">
-                {deal.Company} {">>"}
+                {deal.Company || deal.company} {">>"}
               </a>
             </div>
           </div>
