@@ -10,11 +10,11 @@
     justify-content: start;
     margin: 1rem 0 1rem 0;
 }
-
-.image {
+/* 
+.card-image {
     max-width: 35rem;
     height: auto;
-}
+} */
 
 .content{
     display: flex;
