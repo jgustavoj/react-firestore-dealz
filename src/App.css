@@ -1,4 +1,14 @@
 
+/*globals */
+.btn{
+    border-radius: 20px;
+}
+
+.heading{
+    padding: 1.25rem 0 1.25rem 0;
+    margin: 0;
+}
+
 .company{
     display: flex;
     justify-content: center;
@@ -10,11 +20,7 @@
     justify-content: start;
     margin: 1rem 0 1rem 0;
 }
-/* 
-.card-image {
-    max-width: 35rem;
-    height: auto;
-} */
+
 
 .content{
     display: flex;
@@ -23,3 +29,11 @@
     flex-direction: column;
 }
 
+
+.searchBar{
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
