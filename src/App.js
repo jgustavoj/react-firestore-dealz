@@ -1,15 +1,28 @@
 import React, { useEffect, useState } from "react";
 import firebase from "./firebase";
 import Navbar from "./components/navbar";
+// import Dropdown from "./components/dropdown";
 import "./App.css";
 
 export default function App() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [company, setCompany] = useState([
+    "Select Company",
+    "Trulieve",
+    "Option 2",
+    "Option 3",
+  ]);
+
+  const [dropdownResults, setDropdownResults] = [];
+
+  console.log("$$$$", deals);
 
   const ref = firebase.firestore().collection("deals");
   // console.log(ref);
-
+  const handleCompanyChange = (e) => {
+    console.log(company[e.target.value]);
+  };
   // this function uses querySnapshot and it gives a response in "realtime" from firestore.
   function getDeals() {
     setLoading(true);
@@ -35,36 +48,25 @@ export default function App() {
   return (
     <>
       <Navbar />
+      <div className="dropdown">
+        <select onChange={(e) => handleCompanyChange(e)}>
+          {company.map((value, index) => (
+            <option key={index} value={index}>
+              {value}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      {/* <div className="searchBar">
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            type="submit">
-            Search
-          </button>
-        </form>
-      </div> */}
+      {/* {function filterResult(company) {
+        let result = deals.filter((item) => item.Company.includes(company));
+        console.log("&&&&&", result);
+      }} */}
 
       <div className="content">
         <h1 className="heading">Miami</h1>
-
         {deals.map((deal) => (
           <div className="card" key={deal.id}>
-            {/* <h1 className="company"> {deal.Company}</h1> */}
-            {/* {deal.Company !== "" ? (
-              <h2 className="image__title">
-                {deal.Company} : {deal.Title}
-              </h2>
-            ) : (
-              ""
-            )} */}
             <div className="card__image">
               <a href={deal.Link} target="blank">
                 <img className="rounded img-fluid" src={deal.Link} alt=""></img>
@@ -73,11 +75,6 @@ export default function App() {
 
             <div className="card__body">
               <h5 className="image__title"> {deal.Title}</h5>
-
-              {/* <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p> */}
               <a
                 href={deal.pageLink}
                 className="btn btn-outline-success"
