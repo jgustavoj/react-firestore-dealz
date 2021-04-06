@@ -53,9 +53,7 @@ export default function App() {
       </div> */}
 
       <div className="content">
-        <h1 className="heading">
-          <u>Miami</u>
-        </h1>
+        <h1 className="heading">Miami</h1>
 
         {deals.map((deal) => (
           <div className="card" key={deal.id}>
