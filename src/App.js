@@ -3,7 +3,7 @@ import firebase from "./firebase";
 import Navbar from "./components/navbar";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -53,17 +53,12 @@ function App() {
       </div> */}
 
       <div className="content">
-        <h1 className="heading">Miami</h1>
+        <h1 className="heading">
+          <u>Miami</u>
+        </h1>
 
         {deals.map((deal) => (
-          <div
-            className="card "
-            key={deal.id}
-            style={{
-              maxWidth: "35rem",
-              padding: "1.25rem",
-              margin: "0 1.25rem 2.25rem 1.25rem",
-            }}>
+          <div className="card" key={deal.id}>
             {/* <h1 className="company"> {deal.Company}</h1> */}
             {/* {deal.Company !== "" ? (
               <h2 className="image__title">
@@ -72,29 +67,14 @@ function App() {
             ) : (
               ""
             )} */}
-            {/* <div className="card-image"> */}
-            {/* <img className="card-img-top" src="..." alt="" /> */}
+            <div className="card__image">
+              <a href={deal.Link} target="blank">
+                <img className="rounded img-fluid" src={deal.Link} alt=""></img>
+              </a>
+            </div>
 
-            <a href={deal.Link} target="blank">
-              <img
-                className=" card-img-top rounded img-fluid"
-                src={deal.Link}
-                alt=""></img>
-            </a>
-            {/* </div> */}
-
-            {/* <div className="card" style={{ width: "18rem" }}> */}
-            <div
-              className="card-body"
-              style={{ padding: "1.25rem 0 1.25rem 0" }}>
-              {/* {deal.Company !== "" ? (
-                <h3 className="card-title image__title">
-                  {deal.Company} : {deal.Title}
-                </h3>
-              ) : (
-                ""
-              )} */}
-              <h5 className="card-title image__title"> {deal.Title}</h5>
+            <div className="card__body">
+              <h5 className="image__title"> {deal.Title}</h5>
 
               {/* <p className="card-text">
                 Some quick example text to build on the card title and make up
@@ -104,15 +84,12 @@ function App() {
                 href={deal.pageLink}
                 className="btn btn-outline-success"
                 target="blank">
-                {deal.Company}
+                {deal.Company} {">>"}
               </a>
             </div>
-            {/* </div> */}
           </div>
         ))}
       </div>
     </>
   );
 }
-
-export default App;
