@@ -2,27 +2,44 @@ import React, { useEffect, useState } from "react";
 import firebase from "./firebase";
 import Navbar from "./components/navbar";
 // import Dropdown from "./components/dropdown";
+import Select from "react-select";
+
 import "./App.css";
 
 export default function App() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [company, setCompany] = useState([
-    "Select Company",
-    "Trulieve",
-    "Option 2",
-    "Option 3",
-  ]);
-
-  const [dropdownResults, setDropdownResults] = [];
-
+  // const [company, setCompany] = useState([
+  //   "Select Company",
+  //   "Trulieve",
+  //   "Surterra",
+  //   "Option 3",
+  // ]);
+  const companyOptions = ["Trulive", "Surterra", "Test"];
+  // { label: "Trulieve", value: "Trulieve" },
+  // { label: "Surterra", value: "Surterra" },
+  // { label: "Test", value: "Test" },
+  const companySelectionDropdown = companyOptions.map((opt) => ({
+    label: opt,
+    value: opt,
+  }));
   console.log("$$$$", deals);
 
   const ref = firebase.firestore().collection("deals");
-  // console.log(ref);
-  const handleCompanyChange = (e) => {
-    console.log(company[e.target.value]);
+
+  const handleChange = (e) => {
+    return console.log(deals[e.target.value]);
   };
+
+  //This function removes duplicates from the array of objects in deals hook to then use as a dropdown
+  //company needs to be adjusted on db so everything is uniform and dropdown selection can work properly
+  const uniqueObjects = [
+    ...new Map(
+      deals.map((item) => [item.company || item.Company, item])
+    ).values(),
+  ];
+  console.log("DDDDD", uniqueObjects);
+
   // this function uses querySnapshot and it gives a response in "realtime" from firestore.
   function getDeals() {
     setLoading(true);
@@ -49,19 +66,20 @@ export default function App() {
     <>
       <Navbar />
       <div className="dropdown">
-        <select onChange={(e) => handleCompanyChange(e)}>
-          {company.map((value, index) => (
+        <Select
+          options={companySelectionDropdown}
+          onChange={(opt) => console.log(opt.label, opt.value)}
+        />
+      </div>
+      {/* <div className="dropdown">
+        <select onChange={(e) => handleChange(e)}>
+          {uniqueObjects.map((value, index) => (
             <option key={index} value={index}>
-              {value}
+              {value.Company || value.company}
             </option>
           ))}
         </select>
-      </div>
-
-      {/* {function filterResult(company) {
-        let result = deals.filter((item) => item.Company.includes(company));
-        console.log("&&&&&", result);
-      }} */}
+      </div> */}
 
       <div className="content">
         <h1 className="heading">Miami</h1>
@@ -75,7 +93,6 @@ export default function App() {
                   alt=""></img>
               </a>
             </div>
-
             <div className="card__body">
               <h5 className="image__title"> {deal.Title || deal.title}</h5>
               <a

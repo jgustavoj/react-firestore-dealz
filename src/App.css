@@ -10,6 +10,16 @@
     margin: 0;
 }
 
+.dropdown{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* margin: 1.25rem;
+    width: 75%; */
+    margin-top: 1.25rem;
+    margin-left: 20rem;
+    margin-right: 20rem;
+}
 
 
 .content{
