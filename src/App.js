@@ -9,27 +9,22 @@ import "./App.css";
 export default function App() {
   const [deals, setDeals] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const [company, setCompany] = useState([
-  //   "Select Company",
-  //   "Trulieve",
-  //   "Surterra",
-  //   "Option 3",
-  // ]);
+
   const companyOptions = ["Trulive", "Surterra", "Test"];
-  // { label: "Trulieve", value: "Trulieve" },
-  // { label: "Surterra", value: "Surterra" },
-  // { label: "Test", value: "Test" },
   const companySelectionDropdown = companyOptions.map((opt) => ({
     label: opt,
     value: opt,
   }));
-  console.log("$$$$", deals);
+  console.log(
+    "$$$$",
+    deals.filter((x) => x.company || x.Company)
+  );
 
   const ref = firebase.firestore().collection("deals");
 
-  const handleChange = (e) => {
-    return console.log(deals[e.target.value]);
-  };
+  // const handleChange = (e) => {
+  //   return console.log(deals[e.target.value]);
+  // };
 
   //This function removes duplicates from the array of objects in deals hook to then use as a dropdown
   //company needs to be adjusted on db so everything is uniform and dropdown selection can work properly
@@ -65,22 +60,21 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <div className="dropdown">
+
+      {/* Dropdown */}
+      <div className="container mt-3">
         <Select
           options={companySelectionDropdown}
           onChange={(opt) => console.log(opt.label, opt.value)}
+          placeholder="Filter Company..."
+          // className="basic-multi-select"
+          // classNamePrefix="select"
+          // isMulti
+          // name="colors"
         />
       </div>
-      {/* <div className="dropdown">
-        <select onChange={(e) => handleChange(e)}>
-          {uniqueObjects.map((value, index) => (
-            <option key={index} value={index}>
-              {value.Company || value.company}
-            </option>
-          ))}
-        </select>
-      </div> */}
 
+      {/* Content  */}
       <div className="content">
         <h1 className="heading">Miami</h1>
         {deals.map((deal) => (
@@ -108,3 +102,50 @@ export default function App() {
     </>
   );
 }
+
+// search: search => {
+//   const store = getStore();
+//   let result = store.servicesProviders.filter(
+//     item =>
+//       item.name.toLowerCase().includes(search.toLowerCase()) ||
+//       item.city.toLowerCase().includes(search.toLowerCase()) ||
+//       item.date.includes(search) ||
+//       item.hourlyRate.includes(search)
+//   );
+//   console.log(result);
+//   setStore({ searchResult: result });
+// },
+
+// {/* <div className="dropdown">
+//       <Select
+//         options={companySelectionDropdown}
+//         onChange={(opt) => console.log(opt.label, opt.value)}
+//       />
+//     </div> */}
+//     {/* <div className="dropdown">
+//       <select onChange={(e) => handleChange(e)}>
+//         {uniqueObjects.map((value, index) => (
+//           <option key={index} value={index}>
+//             {value.Company || value.company}
+//           </option>
+//         ))}
+//       </select>
+//     </div> */}
+
+//  {/* <button
+//         onClick={() => actions.search(search)}
+//         className="btn btn-outline-success my-2 my-sm-0"
+//         type="button">
+//         Search
+//       </button> */}
+
+// {/* Search bar  */}
+
+// <div className="container">
+//   <input
+//     className=" form-control mr-sm-2"
+//     type="text"
+//     placeholder="Search"
+//     aria-label="Search"
+//   />
+// </div>
