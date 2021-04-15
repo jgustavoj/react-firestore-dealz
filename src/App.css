@@ -21,6 +21,13 @@
     margin-right: 20rem;
 }
 
+select{
+    border-radius: 9px;
+    padding-right: 50%;
+    padding-left: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 
 .content{
     display: flex;
