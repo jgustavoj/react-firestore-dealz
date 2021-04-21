@@ -1,9 +1,12 @@
+import logo from "../images/Miami_budz_v3.2.png";
+
 export default function Navbar() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <a className="navbar-brand" href="/">
-          Logo
+          {/* eslint-disable-next-line jsx-a11y/alt-text */}
+          <img className="img-fuild" src={logo} id="logo" />
         </a>
         <button
           className="navbar-toggler"
@@ -17,9 +20,10 @@ export default function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link active" href="#">
+            {/*  eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            {/* <a className="nav-item nav-link active" href="#">
               Home <span className="sr-only">(current)</span>
-            </a>
+            </a> */}
             {/* <a className="nav-item nav-link" href="#">
               Contact us
             </a> */}
