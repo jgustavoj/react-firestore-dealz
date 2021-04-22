@@ -42,7 +42,7 @@ export default function App() {
 
       {/* Content  */}
       <div className="content">
-        <h1 className="heading">Local Dispensaries</h1>
+        <h1 className="heading">Today's Dealz</h1>
         {deals.map((deal) =>
           deal.company !== "" ? (
             <div className="card" key={deal.id}>
