@@ -3,6 +3,7 @@ import firebase from "./firebase";
 import Navbar from "./components/navbar";
 // import Dropdown from "./components/dropdown";
 import ScrollButton from "./components/scrollButton";
+import Intro from "./components/intro";
 
 import "./App.css";
 
@@ -37,7 +38,7 @@ export default function App() {
   return (
     <>
       <Navbar />
-
+      <Intro />
       {/* Dropdown */}
 
       {/* Content  */}

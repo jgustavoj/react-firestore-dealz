@@ -15,3 +15,17 @@ export const Button = styled.div`
     left: 47%;
   }
 `;
+
+export const IntroText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  color: grey;
+
+  @media (max-width: 1024.98px) {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+`;
