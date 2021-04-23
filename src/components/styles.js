@@ -21,7 +21,6 @@ export const IntroText = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
-  margin-bottom: 3rem;
   color: grey;
 
   @media (max-width: 1024.98px) {

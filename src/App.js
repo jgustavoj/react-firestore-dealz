@@ -48,7 +48,7 @@ export default function App() {
           deal.company !== "" ? (
             <div className="card" key={deal.id}>
               <div className="card__image">
-                <a href={deal.link} target="blank">
+                <a href={deal.link} rel="noreferrer" target="_blank">
                   <img
                     className="rounded img-fluid"
                     src={deal.link}
