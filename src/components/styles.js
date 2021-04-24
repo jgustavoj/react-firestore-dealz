@@ -20,6 +20,7 @@ export const IntroText = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-top: 3rem;
   color: grey;
 

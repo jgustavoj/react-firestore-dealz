@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 // import Dropdown from "./components/dropdown";
 import ScrollButton from "./components/scrollButton";
 import Intro from "./components/intro";
+import Footer from "./components/footer";
 
 import "./App.css";
 
@@ -71,6 +72,7 @@ export default function App() {
         )}
       </div>
       <ScrollButton />
+      <Footer />
     </>
   );
 }
