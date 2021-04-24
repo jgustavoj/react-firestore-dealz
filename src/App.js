@@ -58,10 +58,7 @@ export default function App() {
               </div>
               <div className="card__body">
                 <h5 className="image__title"> {deal.title}</h5>
-                <a
-                  href={deal.pageLink}
-                  className="btn btn-outline-success"
-                  target="blank">
+                <a href={deal.pageLink} className="btn btn-outline-success">
                   {deal.company} {">>"}
                 </a>
               </div>

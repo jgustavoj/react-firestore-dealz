@@ -12,7 +12,7 @@ export const Button = styled.div`
   color: green;
 
   @media (max-width: 1024.98px) {
-    left: 47%;
+    left: 85%;
   }
 `;
 
