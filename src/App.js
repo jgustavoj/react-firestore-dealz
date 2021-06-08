@@ -5,6 +5,7 @@ import Navbar from "./components/navbar";
 import ScrollButton from "./components/scrollButton";
 import Intro from "./components/intro";
 import Footer from "./components/footer";
+import { Circle } from "./components/styles";
 
 import "./App.css";
 
