@@ -20,19 +20,21 @@ import styled from "styled-components";
 export const Circle = styled.div`
   position: fixed;
   height: 48px;
-  left: 34%;
-  bottom: 92%;
-  width: 27%;
-  font-size: 19px;
+  // left: 42%;
+  bottom: 90%;
+  width: 120px;
+  font-size: 16px;
   background-color: green;
   color: white;
-  border-radius: 50%;
+  border-radius: 36px;
   display: inline-block;
   z-index: 1;
-  line-height: 2.5;
+  line-height: 3.1;
+
 
   #circle{
-    margin-left: 6px;
+    margin-left: 18px;
+  
   }
 
 `

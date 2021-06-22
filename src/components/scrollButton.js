@@ -8,9 +8,9 @@ const ScrollButton = () => {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
+    if (scrolled > 400) {
       setVisible(true);
-    } else if (scrolled <= 300) {
+    } else if (scrolled <= 400) {
       setVisible(false);
     }
   };
@@ -28,12 +28,12 @@ const ScrollButton = () => {
 
   return (
     <>
-
+    <div className="d-flex justify-content-center">
     <Circle onClick={scrollToTop}
     style={{ display: visible ? "inline" : "none" }}>
       <p id="circle">Back to Top</p>
       </Circle>
-    
+      </div>
     </>
   );
 };
